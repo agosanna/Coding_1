@@ -1,0 +1,44 @@
+body{
+    font-family: “Comic Sans MS”, “Comic Sans”, cursive;
+    overflow-x: hidden;
+}
+
+h1{
+    padding: 20px;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    padding: 20px;
+  }
+  
+  #container > div {
+    background-color: #8ca0ff;
+    width: 300px;
+    height: 300px;
+    padding: 15%;
+  }
+
+  div > img {
+    height: 20vh;
+  }
+
+  @media only screen and (max-width: 600px) {
+
+    #container{
+        display: block;
+        width: 80%;
+        padding: 5%;
+    }
+
+    #container > div {
+        background-color: #8ca0ff;
+        width: 100%;
+        padding: 20%;
+      }
+    h1{
+        padding: 10vw;
+    }
+  }
