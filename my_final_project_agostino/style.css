@@ -206,5 +206,9 @@ button {
     height: 5vh;
     padding: 0 1vh;
   }
+
+  #title {
+    width: 80%;
+  }
   
 }
