@@ -37,6 +37,6 @@ const movesCounter = () => {
 
 // Pairs counter function
 const pairsCounter = () => {
-  pairsLeft -= 20;
+  pairsLeft -= 1;
   pairs.innerHTML = `<span>Pairs left:</span>${pairsLeft}`;
 };
