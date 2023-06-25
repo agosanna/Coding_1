@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Memory card game</title>
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
 
-    <div id="container">
-
+    <div class="wrapper">
+      <div class="ingame-container">
+        <div class="ingame-controls-container">
+          <img id="stop" class="hide" src="./assets/stop-button.png"/>
+          <img id="restart" class="hide" src="./assets/restart-button.png"/>
+        </div>
+        <div class="stats-container">
+          <div id="moves-count"></div>
+          <div id="pairs-left-counter"></div>
+          <div id="time"></div>
+        </div>
+      </div>
+      <div class="game-container"></div>
     </div>
-    
+
+    <div class="endgame-container">
+        <img src="./assets/Title.png"/>
+        <p id="result"></p>
+        <img id="start" src="./assets/start-button.png"/>
+        <div id="highscore-controls-container">
+          <div id="highscore-list"></div>
+          <button id="sort" class="hide"></button>
+        </div>   
+    </div>   
  
-<script src="main.js"></script>
-</body>
+    <!-- Script -->
+    <script src="counters.js"></script>
+    <script src="matrix.js"></script>
+    <script src="main.js"></script>
+    <script src="buttons.js"></script>
+    
+
+  </body>
 </html>

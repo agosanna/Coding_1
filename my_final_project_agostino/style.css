@@ -1,60 +1,210 @@
-body {
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+@font-face {
+  font-family: "Ottavino-20";
+  src: url("./assets/Ottavino20-Regular.otf");
 }
 
-#container {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ottavino-20";
+  overflow: hidden;
 }
 
-.card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 3px solid red;
-    border-radius: 3px;
-    width: 9vw;
-    height: 9vw;
-    margin: 5px;
-    position: relative;
+html body {
+  margin: 0;
+  min-height: 100vh;
 }
 
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
 }
 
-.front {
-    position: absolute;
-    z-index: -1;
+.game-container {
+  display: grid;
+  gap: 0.5vw;
 }
 
-/* responsive grid */
-
-@media screen and (max-width: 600px) {
-    #container {
-        grid-template-columns: repeat(5, 1fr);
-    }
-
-    .card {
-        width: 10vh;
-        height: 10vh;
-    }
+.stats-container {
+  text-align: left;
+  margin: 3vh;
 }
 
-@media screen and (max-width: 450px) {
-    #container {
-        grid-template-columns: repeat(4, 1fr);
-    }
+.stats-container span {
+  font-weight: 600;
+  font-size: 1.2em;
+}
 
-    .card {
-        width: 7vh;
-        height: 7vh;
-    }
+.ingame-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-container {
+  position: relative;
+  width: 6vw;
+  height: 6vw;
+  cursor: pointer;
+  animation: cardAnimation 0.3s ease-in-out;
+}
+
+@keyframes cardAnimation {
+  from {
+    opacity: 0.9;
+    transform: rotateY(60deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+.card-container.matched {
+  transition: scale 0.5s ease-in-out;
+  scale: 0.9;
+}
+
+
+.card-before,
+.card-after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.7s ease-out;
+  backface-visibility: hidden;
+  box-shadow: 1em 1em 5em;
+}
+
+.card-before {
+  background-color: #ffffff;
+  font-weight: 600;
+
+}
+
+.card-after {
+  background-color: #ffffff;
+  transform: rotateY(180deg);
+}
+
+.card-container.flipped .card-before {
+  transform: rotateY(180deg);
+}
+
+.card-container.flipped .card-after {
+  transform: rotateY(0deg);
+}
+
+.endgame-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  background-color: white;
+  top: 0;
+}
+
+#highscore-controls-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 3vw;
+  font-size: large;
+}
+
+#highscore-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 10vw;
+  width: 40vw;
+  align-items: center;
+}
+
+.list{
+  display: inline-block;
+}
+
+
+button {
+  border: solid 2px black;
+  border-radius: 0.6em;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 1vw;
+  background-color: #ffffff
+}
+
+#start {
+  border: none;
+  font-size: 1.5em;
+  border-radius: 1em;
+}
+
+#stop, #restart {
+  height: 7vh;
+  padding: 0 0.3em;
+}
+
+.controls-container button {
+  font-size: 2em;
+}
+
+.ingame-controls-container {
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
+#result {
+  text-align: center;
+}
+
+#result h2 {
+  font-size: 2.5em;
+}
+
+#result h4 {
+  font-size: 1.8em;
+  margin: 0.6em 0 0.3em 0;
+}
+
+@media (max-width: 1150px) {
+  .card-container {
+    width: 8vw;
+    height: 8vw;
+  }
+}
+
+@media (max-width: 725px) {
+  .card-container {
+    width: 7.5vh;
+    height: 7.5vh;
+  }
+
+  #stop, #restart {
+    height: 5vh;
+    padding: 0 1vh;
+  }
+  
 }
